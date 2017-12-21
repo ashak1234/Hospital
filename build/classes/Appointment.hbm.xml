@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+<class name="bean.Appointment" table="appointment" >
+<id name="aid" column="aid" type="int">
+<generator class="increment"/>
+</id>
+<property name="firstName" column="firstName"/>
+<property name="lastName" column="lastName"/>
+<property name="dept" column="dept"/>
+<property name="doctor" column="doctor"/>
+<property name="day" column="day"/>
+<property name="time" column="time"/>
+<property name="reason" column="reason"/>
+<property name="email" column="email"/>
+<property name="address" column="address"/>
+<property name="mobile" column="mobile"/>
+<property name="contactType" column="contactType"/>
+</class>
+</hibernate-mapping> 
