@@ -10,7 +10,7 @@
   <property name="username" value="root"/>
   <property name="password" value="123456"/> 
   </bean>  
-  
+  <!-- without annotation -->
   <bean id="mySessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
   <property name="dataSource" ref="ds"/>
   <property name="mappingResources" >
@@ -26,7 +26,8 @@
   </props> 
   </property>
   </bean>   
-   
+  
+   <!-- with annotation -->
   <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
   <property name="dataSource" ref="ds"/>  
     <property name="annotatedClasses">
@@ -44,12 +45,14 @@
   </property>  
     </bean>
    
+    <!-- without annotation -->
   <bean id="templateOne" class="org.springframework.orm.hibernate3.HibernateTemplate">
 	  <constructor-arg>
 	  <ref bean="mySessionFactory"/>
 	   </constructor-arg>   
   </bean> 
   
+   <!-- with annotation -->
   <bean id="templateTwo" class="org.springframework.orm.hibernate3.HibernateTemplate">
 	  <constructor-arg>
 	  <ref bean="sessionFactory"/>
