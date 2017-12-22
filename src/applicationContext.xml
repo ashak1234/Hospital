@@ -8,7 +8,7 @@
   <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
   <property name="url" value="jdbc:mysql://localhost:3306/hospital"/>
   <property name="username" value="root"/>
-  <property name="password" value="123456"/> 
+  <property name="password" value="5210"/> 
   </bean>  
   <!-- without annotation -->
   <bean id="mySessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -34,6 +34,7 @@
         <list>
             <value>bean.Register</value>
             <value>bean.Login</value>
+            <value>bean.Patient</value>
         </list>
     </property>
     <property name="hibernateProperties">
@@ -71,5 +72,12 @@
   <bean id="l" class="dao.LoginDao">
   <property name="ht" ref="templateTwo"></property>  
   </bean>	
+    	
+  <bean id="d" class="dao.PatientDao">  
+  <property name="template" ref="templateTwo"></property>  
+  </bean>  
+      
+    
+      	
     	
 </beans>

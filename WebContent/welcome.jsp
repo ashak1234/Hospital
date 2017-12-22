@@ -100,7 +100,7 @@ article {
 <article>
 <section>
 <ul>  
-  <li><a href="patientLogin.jsp">Patient and Visitors</a></li>
+  <li><a href="Patient_Login.jsp">Patient and Visitors</a></li>
   <li><a href="doctorLogin.jsp">Doctor and Departments</a></li>
   <li><a href="#info">Health Info</a></li>
   <li><a href="#jobs">Jobs</a></li>  

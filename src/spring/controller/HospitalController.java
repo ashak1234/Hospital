@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import bean.Appointment;
 import bean.Login;
+import bean.Patient;
 import bean.Register;
 import services.AppointmentService;
 import services.LoginService;
@@ -67,6 +68,14 @@ public class HospitalController {
 		rs.register(user);
 		System.out.println("After Registering Mr/Miss" +user.getFirstName());
 		return new ModelAndView("home", "firstname", user.getFirstName());
+	}
+	
+	@RequestMapping(value="/patient_Register", method=RequestMethod.POST)
+	public ModelAndView registerPage(@ModelAttribute("patient") Patient patient){
+		
+		System.out.println(patient.getFirstName());
+		
+		return new ModelAndView("Patient_Home", "firstname", patient.getFirstName());
 	}
 	
 }

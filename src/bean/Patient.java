@@ -1,0 +1,73 @@
+package bean;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "patient")
+public class Patient {
+   
+   @Id @GeneratedValue
+   @Column(name = "pid")
+   private int pid;
+   private	String firstName;
+   private	String lastName;
+   private String email;
+   private	String userName;
+   private String password;
+   //Address
+   //Age
+   //Gender
+   //PhoneNumber
+   //BirthDate
+   //healthcareplan
+   public Patient() {}
+
+	public int getPid() {
+		return pid;
+	}
+	
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+   
+}
