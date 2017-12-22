@@ -45,13 +45,23 @@
 	.active {
 	    background-color: #4CAF50;
 	}
+
+	#header{
+		 background-color: ligt-blue;
+		 width: 1000px;
+		 display: block;
+	}
 	</style>
 </head>
 <body>
+<div id = "header"> 
 	<center>
 		<h2> Welcome ${firstname}</h2>
 		<br>
 		<br>
+	</center>
+</div>
+	<center>
 		<section>
 		<ul>
 		  <li><a href="#home">Home</a></li>

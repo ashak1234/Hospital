@@ -12,11 +12,11 @@
   </bean>  
   
   <bean id="mySessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-  <property name="dataSource" ref="ds"/>  
+  <property name="dataSource" ref="ds"/>
   <property name="mappingResources" >
   <list>  
   <value>Appointment.hbm.xml</value>
-   </list>
+  </list>
   </property>
   <property name="hibernateProperties">
   <props>
@@ -24,14 +24,15 @@
   <prop key="show_sql">true</prop>
   <prop key="hibernate.hbm2ddl.auto">update</prop>
   </props> 
-  </property>  
+  </property>
   </bean>   
+   
   <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
   <property name="dataSource" ref="ds"/>  
     <property name="annotatedClasses">
         <list>
-        	<value>bean.Login</value>
             <value>bean.Register</value>
+            <value>bean.Login</value>
         </list>
     </property>
     <property name="hibernateProperties">
@@ -67,7 +68,5 @@
   <bean id="l" class="dao.LoginDao">
   <property name="ht" ref="templateTwo"></property>  
   </bean>	
-  
-  
-	
+    	
 </beans>
