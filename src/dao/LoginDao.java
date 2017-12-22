@@ -1,5 +1,5 @@
- package dao;
-
+package dao;
+//dao
 import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import bean.Login;
