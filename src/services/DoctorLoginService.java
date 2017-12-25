@@ -3,24 +3,25 @@ package services;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import bean.Login;
-import bean.Register;
-import dao.LoginDao;
-import dao.RegisterDao;
+
+import dao.DoctorLoginDao;
+import hibernatebean.Doctor;
+import hibernatebean.DoctorLogin;
+import dao.DoctorDao;
 
 
-public class LoginService {
+public class DoctorLoginService {
 	
 	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 	BeanFactory factory =  (BeanFactory)context;		
-	LoginDao logindao = (LoginDao)factory.getBean("l");
+	DoctorLoginDao logindao = (DoctorLoginDao)factory.getBean("doclogin");
 	
-	public  Register checkLogin(String userName, String userPassword){
-		Register user = logindao.checkLogin(userName, userPassword);
+	public  Doctor isUserExist(String userName, String userPassword){
+		Doctor user = logindao.isUserExist(userName, userPassword);
 		return user;
 	}
 	
-	public  void login(Login user){
+	public  void login(DoctorLogin user){
 		logindao.login(user);
 		System.out.println("Logged in successfully");
 	}

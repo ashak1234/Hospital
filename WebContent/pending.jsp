@@ -12,12 +12,12 @@ body{
 			background-color: #ead9c8;
 		}
 <center>
-	<h2>Appointment List</h2>
+	<h2>Pending List</h2>
 	
-	<c:if test="${not empty apptList}">
+	<c:if test="${not empty list}">
 
 		<ul>
-			<c:forEach var="listValue" items="${apptList}">
+			<c:forEach var="listValue" items="${list}">
 				<li>${listValue}</li>
 			</c:forEach>
 		</ul>

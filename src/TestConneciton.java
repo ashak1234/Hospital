@@ -4,8 +4,8 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import bean.Appointment;
 import dao.AppointmentDao;
+import hibernatebean.Appointment;
 
 public class TestConneciton {
 

@@ -1,20 +1,24 @@
-package bean;
+package hibernatebean;
 
 import java.util.Date;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 public class Appointment {
 	private int aid;
 	private String firstName;
 	private String lastName;	
 	private String dept;
-	private String doctor;
-	private Date date;
+	private String doctor;	
+	private String day;
 	private String time;
 	private String reason;
 	private String email;
 	private String mobile;
 	private String address;
 	private String contactType;
+	private String pending;
 	
 	public String getFirstName() {
 		return firstName;
@@ -70,18 +74,25 @@ public class Appointment {
 	public void setContactType(String contactType) {
 		this.contactType = contactType;
 	}
-	public Date getDay() {
-		return date;
-	}
-	public void setDay(Date day) {
-		this.date = day;
-	}
+	
 	public String getTime() {
 		return time;
 	}
 	public void setTime(String time) {
 		this.time = time;
 	}
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public String getPending() {
+		return pending;
+	}
+	public void setPending(String pending) {
+		this.pending = pending;
+	}	
 	
 	public int getAid() {
 		return aid;
@@ -92,8 +103,12 @@ public class Appointment {
 	@Override
 	public String toString() {
 		return "Appointment [aid=" + aid + ", firstName=" + firstName + ", lastName=" + lastName + ", dept=" + dept
-				+ ", doctor=" + doctor + ", day=" + date + ", time=" + time + ", reason=" + reason + ", email=" + email
-				+ ", mobile=" + mobile + ", address=" + address + ", contactType=" + contactType + "]";
+				+ ", doctor=" + doctor + ", date=" + day + ", time=" + time + ", reason=" + reason + ", email=" + email
+				+ ", mobile=" + mobile + ", address=" + address + ", contactType=" + contactType + ", pendingType="
+				+ pending + "]";
 	}
+	
+	
+	
 	
 }

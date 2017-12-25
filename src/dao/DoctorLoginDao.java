@@ -2,11 +2,12 @@ package dao;
 //dao
 import java.util.List;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import bean.Login;
-import bean.Register;
+
+import hibernatebean.Doctor;
+import hibernatebean.DoctorLogin;
 
 
-public class LoginDao {	
+public class DoctorLoginDao {	
 	HibernateTemplate ht;
 
 	public HibernateTemplate getHt() {
@@ -15,14 +16,14 @@ public class LoginDao {
 
 	public void setHt(HibernateTemplate ht) {
 		this.ht = ht;
-		System.out.println("Hello from Register Setter of hibernate template");
+		System.out.println("Hello from DoctorLogin Setter of hibernate template");
 	}
 
 	@SuppressWarnings("unchecked")
-	public Register checkLogin(String userName, String userPassword) {
+	public Doctor isUserExist(String userName, String userPassword) {
 		//boolean userFound = false;
 		
-		List<Register> user = ht.find("from Register a  where a.userName = ? and a.password=?", new Object[]{ userName, userPassword} ); 
+		List<Doctor> user = ht.find("from Doctor a  where a.userName = ? and a.password=?", new Object[]{ userName, userPassword} ); 
 		if (user.isEmpty()) {
 			System.out.println("retruning null");
 			return null;
@@ -30,7 +31,7 @@ public class LoginDao {
 		return user.get(0);
 	}
 	
-	public void login(Login user){
+	public void login(DoctorLogin user){
 		getHt().save(user);		
 	}	
 

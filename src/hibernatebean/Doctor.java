@@ -1,4 +1,4 @@
-package bean;
+package hibernatebean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="register")
-public class Register {
+@Table(name="doctor")
+public class Doctor {
 	@Id @GeneratedValue
 	@Column(name="rid")
 	private int rid;
@@ -17,6 +17,10 @@ public class Register {
 	private String lastName;
 	private String address;
 	private String email;
+	private int numOfAppointments;
+	private int numOfRecords;
+	private String dept;
+	//private String numOfPatients;
 	
 	public String getUserName() {
 		return userName;
@@ -53,6 +57,30 @@ public class Register {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public int getRid() {
+		return rid;
+	}
+	public void setRid(int rid) {
+		this.rid = rid;
+	}
+	public int getNumOfAppointments() {
+		return numOfAppointments;
+	}
+	public void setNumOfAppointments(int numOfAppointments) {
+		this.numOfAppointments = numOfAppointments;
+	}
+	public int getNumOfRecords() {
+		return numOfRecords;
+	}
+	public void setNumOfRecords(int numOfRecords) {
+		this.numOfRecords = numOfRecords;
+	}
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
 	}
 
 }

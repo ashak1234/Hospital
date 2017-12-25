@@ -4,8 +4,32 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Appointment</title>
+<script>
+function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = "";
+	if(s1.value == "ENT"){
+		var optionArray = ["|","Dr.jay|Dr.Jay","Dr.raj|Dr.Raj"];
+	} else if(s1.value == "General"){
+		var optionArray = ["|","Dr.khetan|Dr.Khetan","Dr.robert|Dr.Robert"];
+	} else if(s1.value == "Cardiology"){
+		var optionArray = ["|","Dr.joe|Dr.Joe","Dr.sheela|Dr.Sheela"];
+	}
+	for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}
+}
+</script>
 </head>
 	<style>
+		body{
+			background-color: #ead9c8;
+		}
 		label {
 			  display: inline-block;
 			  width: 200px;
@@ -27,24 +51,16 @@
 <legend><b>Fill up Appointment Details</b></legend><br>
 <label>FirstName </label><input type="text" name="firstName" required="required"><br><br>
 <label>LastName </label><input type="text" name="lastName" required="required"><br><br>
-<label for="dept">Choose Department </label><input id="dept_name" name="dept" type="text" list="deptlist" required="required">		
-		<datalist id="deptlist">
-		   <option value="ENT"></option>
-		   <option value="Genral"></option>
-		   <option value="Cardiology"></option>
-		   <option value="Neurology"></option>
-		   <option value="Orthopedics"></option>
-		   <option value="Pediatrics"></option>
-		</datalist><br><br>
-<label for="doctor_name">Choose Doctor </label><input id="doctor_name" name="doctor" type="text" list="doctorlist" required="required">		
-		<datalist id="doctorlist">
-		   <option value="Dr.Jay"></option>
-		   <option value="Dr.Kethan"></option>
-		   <option value="Dr.Robert"></option>
-		   <option value="Dr.Chris"></option>
-		   <option value="Dr.Raj"></option>
-		</datalist><br><br>
-<label>Choose Day </label><input type="date" name="date"/><br><br>	   	
+<label>Choose Department</label>
+<select id="slct1" name="dept" onchange="populate(this.id,'slct2')" required="required">
+  <option value=""></option>
+  <option value="ENT">ENT</option>
+  <option value="General">General</option>
+  <option value="Cardiology">Cardiology</option>
+</select><br><br>
+<label>Choose Doctor</label>
+<select id="slct2" name="doctor" required="required"></select><br><br>
+<label>Choose Day </label><input type="date" name="day"/><br><br>	   	
 <label for="time">Select time </label><input id="time" name="time" type="text" list="timings" required="required">		
 		<datalist id="timings">
 		   <option value="10:00"></option>
@@ -65,6 +81,7 @@
 							  <input type="radio" name="contactType" value="address">In-app chat<br><br>
 	
 	<legend> <input id="sub" type=submit value="Submit!"></legend>
+	<a href="home.jsp">Home</a></li>
 
 </form:form>
 </body>

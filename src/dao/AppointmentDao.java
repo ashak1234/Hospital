@@ -5,13 +5,14 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import bean.Appointment;
-import bean.Login;
+import hibernatebean.Appointment;
+import hibernatebean.Doctor;
+import hibernatebean.DoctorLogin;
 
 public class AppointmentDao {
 	
-	HibernateTemplate ht;
-
+	HibernateTemplate ht;	
+	Doctor doctor = new Doctor();
 	public HibernateTemplate getHt() {
 		return ht;
 	}
@@ -22,8 +23,9 @@ public class AppointmentDao {
 	}
 	
 	public void addAppointment(Appointment a){
-		getHt().save(a);
-	}	
+		a.setPending("yes");			
+		getHt().save(a);			
+	}		
 	
 	@SuppressWarnings("unchecked")
 	public List<Appointment> getAllAppointments(){
@@ -35,6 +37,28 @@ public class AppointmentDao {
 		String query = 	"update Appointment set firstName=? where firstName=?";
 		int res = ht.bulkUpdate(query, new Object[]{"asha", "deepa"});
 		System.out.println("No of records updated:" +res);
+	}	
+	
+	public List<Appointment> getAppointmentsByName(String doctor){
+		List<Appointment> userList = ht.find("from Appointment a  where a.doctor = ?",new Object[]{doctor}); 
+		if (userList.isEmpty()) {
+			System.out.println("retruning null");
+			return null;
+		}		
+		return userList;
 	}
 
+	public List<Appointment> getAllPendingRequests(String Doctor) {
+		List<Appointment> pendingList = ht.find("from Appointment a  where a.pending = 'yes' and a.doctor=?",new Object[]{doctor}); 
+		if (pendingList.isEmpty()) {
+			System.out.println("retruning null");
+			return null;
+		}		
+		return pendingList;
+	}	
+	
+	public void remove(Appointment a){		
+		ht.delete(a);
+		System.out.println("Deleted appointment for"+a.getFirstName());
+	}
 }

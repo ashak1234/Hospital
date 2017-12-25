@@ -1,10 +1,10 @@
-package bean;
+package hibernatebean;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="login")
-public class Login {
+@Table(name="doctorlogin")
+public class DoctorLogin {
 	@Id @GeneratedValue
 	@Column(name="id")
 	private int id;

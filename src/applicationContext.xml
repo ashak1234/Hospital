@@ -8,7 +8,7 @@
   <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
   <property name="url" value="jdbc:mysql://localhost:3306/hospital"/>
   <property name="username" value="root"/>
-  <property name="password" value="5210"/> 
+  <property name="password" value="123456"/> 
   </bean>  
   <!-- without annotation -->
   <bean id="mySessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -32,9 +32,11 @@
   <property name="dataSource" ref="ds"/>  
     <property name="annotatedClasses">
         <list>
-            <value>bean.Register</value>
-            <value>bean.Login</value>
-            <value>bean.Patient</value>
+     		<value>hibernatebean.Doctor</value>
+            <value>hibernatebean.DoctorLogin</value>
+            <value>hibernatebean.Hospital</value>
+            <value>hibernatebean.Department</value>
+            
         </list>
     </property>
     <property name="hibernateProperties">
@@ -63,19 +65,24 @@
   
   <bean id="a" class="dao.AppointmentDao">
   <property name="ht" ref="templateOne"></property>  
-  </bean>	
+  </bean>	   	
   
-  <bean id="r" class="dao.RegisterDao">
+  <bean id="doc" class="dao.DoctorDao">
   <property name="ht" ref="templateTwo"></property>  
   </bean>	
   
-  <bean id="l" class="dao.LoginDao">
+  <bean id="doclogin" class="dao.DoctorLoginDao">
   <property name="ht" ref="templateTwo"></property>  
   </bean>	
-    	
+  
+  <bean id="hosp" class="dao.HospitalDao">
+  <property name="ht" ref="templateTwo"></property>  
+  </bean>	
+  
+ <!--    	
   <bean id="d" class="dao.PatientDao">  
   <property name="template" ref="templateTwo"></property>  
-  </bean>  
+  </bean>  --> 
       
     
       	

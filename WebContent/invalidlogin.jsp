@@ -9,6 +9,9 @@
 <title>Doctor</title>
 </head>
 <style>
+body{
+			background-color: #ead9c8;
+		}
 label {
 	    display: inline-block;
 		width: 220px;
