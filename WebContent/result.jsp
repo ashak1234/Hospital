@@ -7,22 +7,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Appt page</title>
 </head>
-<body>
-body{
+<style>
+	body{
 			background-color: #ead9c8;
 		}
+	ul{
+		list-style-type: none;
+	}
+</style>
+<body>
+
 <center>
 	<h2>Appointment List</h2>
 	
 	<c:if test="${not empty apptList}">
-
 		<ul>
-			<c:forEach var="listValue" items="${apptList}">
-				<li>${listValue}</li>
+			<c:forEach var="patient" items="${apptList}">
+				<li>${patient.firstName}</li>
 			</c:forEach>
 		</ul>
-
 	</c:if>
+	<a href="appointment.jsp">Back</a>
+		
 </center>
 </body>
 </html>

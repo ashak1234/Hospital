@@ -6,28 +6,29 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Pending</title>	
+		<title>Modify</title>
+
 	</head>
 	<style>
-	body{
-			background-color: #ead9c8;
-		}
+		body{
+				background-color: #ead9c8;
+			}
 
 	</style>
 	<body>
-		<h2>Update Pending Status</h2>
-		<form:form method="POST" action="savePending">
-	   		<table align="center" border="1">
+		<h2>Modify Appointment</h2>
+		<form:form method="POST" action="saveModify">
+	   		<table align="left" border="1">
 			    <tr>
-			        <td><form:label path="aid">Id:</form:label></td>
+			        <td><form:label path="aid">Appointment id:</form:label></td>
 			        <td><form:input path="aid" value="${a.aid}" readonly="true"/></td>
 			    </tr>
 			    <tr>
-			        <td><form:label path="firstName">FirstName:</form:label></td>
+			        <td><form:label path="firstName">Patient FirstName:</form:label></td>
 			        <td><form:input path="firstName" value="${a.firstName}"/></td>
 			    </tr>
 			    <tr>
-			        <td><form:label path="lastName">LastName:</form:label></td>
+			        <td><form:label path="lastName">Patient LastName:</form:label></td>
 			        <td><form:input path="lastName" value="${a.lastName}"/></td>
 			    </tr>
 			    <tr>
@@ -41,7 +42,7 @@
 			    </tr>
 			    <tr>
 			        <td><form:label path="pending">Pending:</form:label></td>
-			        <td><form:input path="pending" value="${a.pending}"/></td>
+			        <td><form:input path="pending" value="${a.pending}" /></td>
 			    </tr>
 			    <tr>
 			        <td><form:label path="contactType">ContactType:</form:label></td>
@@ -71,13 +72,12 @@
 			    <tr>
 			        <td><form:label path="reason">Reason:</form:label></td>
 			        <td><form:input path="reason" value="${a.reason}"/></td>
-			    </tr>
-			    			    <tr>
+			    <tr>
 			      <td colspan="2"><input type="submit" value="Submit"/></td>
 		      </tr>
 			</table> 
 		</form:form>
-		
+		<br><br>
   <c:if test="${!empty appointments}">
 		<h2>List Appointments</h2>
 	<table align="left" border="1">
@@ -95,6 +95,7 @@
 			<th>Time</th>
 			<th>Day</th>
 			<th>ContactType</th>
+			<th>Actions on Row</th>
 		</tr>
 
 		<c:forEach items="${appointments}" var="a">
@@ -112,6 +113,7 @@
 				<td><c:out value="${a.time}"/></td>
 				<td><c:out value="${a.day}"/></td>
 				<td><c:out value="${a.contactType}"/></td>
+				<td align="center"><a href="edit.html?id=${a.aid}">Edit</a> | <a href="delete.html?id=${a.aid}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

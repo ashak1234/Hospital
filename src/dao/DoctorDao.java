@@ -38,13 +38,13 @@ public class DoctorDao{
 		return userFound=true;
 	}
 	
-	public Doctor getUserByUserName(String uname){
+	public String getUserByUserName(String uname){
 		List<Doctor> userList = ht.find("from Doctor a  where a.userName = ?",new Object[]{ uname}); 
 		if (userList.isEmpty()) {
 			System.out.println("retruning null");
 			return null;
 		}		
-		return (Doctor) userList;
+		return userList.get(0).getFirstName();
 	}
 	
 }

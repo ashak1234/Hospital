@@ -3,11 +3,13 @@ package services;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import dao.DoctorDao;
 import hibernatebean.Appointment;
 import hibernatebean.Doctor;
 
+@Service("ds")
 public class DoctorService {	
 	
 	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");

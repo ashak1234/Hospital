@@ -33,10 +33,7 @@
     <property name="annotatedClasses">
         <list>
      		<value>hibernatebean.Doctor</value>
-            <value>hibernatebean.DoctorLogin</value>
-            <value>hibernatebean.Hospital</value>
-            <value>hibernatebean.Department</value>
-            
+            <value>hibernatebean.DoctorLogin</value>            
         </list>
     </property>
     <property name="hibernateProperties">
@@ -74,11 +71,11 @@
   <bean id="doclogin" class="dao.DoctorLoginDao">
   <property name="ht" ref="templateTwo"></property>  
   </bean>	
-  
-  <bean id="hosp" class="dao.HospitalDao">
-  <property name="ht" ref="templateTwo"></property>  
-  </bean>	
-  
+ 
+ <bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
  <!--    	
   <bean id="d" class="dao.PatientDao">  
   <property name="template" ref="templateTwo"></property>  

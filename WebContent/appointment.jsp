@@ -10,11 +10,11 @@ function populate(s1,s2){
 	var s2 = document.getElementById(s2);
 	s2.innerHTML = "";
 	if(s1.value == "ENT"){
-		var optionArray = ["|","Dr.jay|Dr.Jay","Dr.raj|Dr.Raj"];
+		var optionArray = ["|","Dr.Jay|Dr.jay","Dr.raj|Dr.Raj"];
 	} else if(s1.value == "General"){
-		var optionArray = ["|","Dr.khetan|Dr.Khetan","Dr.robert|Dr.Robert"];
+		var optionArray = ["|","Dr.Khetan|Dr.khetan","Dr.Robert|Dr.robert"];
 	} else if(s1.value == "Cardiology"){
-		var optionArray = ["|","Dr.joe|Dr.Joe","Dr.sheela|Dr.Sheela"];
+		var optionArray = ["|","Dr.Joe|Dr.joe","Dr.Sheela|Dr.sheela"];
 	}
 	for(var option in optionArray){
 		var pair = optionArray[option].split("|");
@@ -60,7 +60,7 @@ function populate(s1,s2){
 </select><br><br>
 <label>Choose Doctor</label>
 <select id="slct2" name="doctor" required="required"></select><br><br>
-<label>Choose Day </label><input type="date" name="day"/><br><br>	   	
+<label>Choose Day </label><input type="text" name="day" placeholder="mm/dd/yyyy"/><br><br>	   	
 <label for="time">Select time </label><input id="time" name="time" type="text" list="timings" required="required">		
 		<datalist id="timings">
 		   <option value="10:00"></option>
@@ -81,7 +81,7 @@ function populate(s1,s2){
 							  <input type="radio" name="contactType" value="address">In-app chat<br><br>
 	
 	<legend> <input id="sub" type=submit value="Submit!"></legend>
-	<a href="home.jsp">Home</a></li>
+	<a href="home.jsp">Back</a>
 
 </form:form>
 </body>

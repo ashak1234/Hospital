@@ -3,6 +3,7 @@ package dao;
 import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import hibernatebean.Appointment;
@@ -22,29 +23,40 @@ public class AppointmentDao {
 		System.out.println("Hello from Setter of hibernate template");
 	}
 	
-	public void addAppointment(Appointment a){
+	protected Session getSession() {
+		return ht.getSessionFactory().getCurrentSession();
+	}
+	
+	public void saveAppointment(Appointment a){
 		a.setPending("yes");			
 		getHt().save(a);			
 	}		
 	
 	@SuppressWarnings("unchecked")
-	public List<Appointment> getAllAppointments(){
-		List<Appointment> list = ht.find("from Appointment"); 
-		return list;		
+	public List<Appointment> getAllAppointments(){		 
+		return  (List<Appointment>)getSession().createCriteria(Appointment.class).list();				 		
 	}
 	
-	public void update(){
-		String query = 	"update Appointment set firstName=? where firstName=?";
-		int res = ht.bulkUpdate(query, new Object[]{"asha", "deepa"});
-		System.out.println("No of records updated:" +res);
+	public void addAppointment(Appointment a){		
+		getSession().saveOrUpdate(a);		
 	}	
 	
+	public Appointment getAppointment(int empid) {
+		return (Appointment) getSession().get(Appointment.class, empid);
+	}
+	
+	public void deleteAppointment(Appointment a) {
+		getSession().createQuery("DELETE FROM Appointment WHERE aid = "+a.getAid()).executeUpdate();
+	}
+	
 	public List<Appointment> getAppointmentsByName(String doctor){
+		System.out.println("doctor");
 		List<Appointment> userList = ht.find("from Appointment a  where a.doctor = ?",new Object[]{doctor}); 
 		if (userList.isEmpty()) {
 			System.out.println("retruning null");
 			return null;
 		}		
+		System.out.println(userList);
 		return userList;
 	}
 
@@ -55,10 +67,6 @@ public class AppointmentDao {
 			return null;
 		}		
 		return pendingList;
-	}	
+	}		
 	
-	public void remove(Appointment a){		
-		ht.delete(a);
-		System.out.println("Deleted appointment for"+a.getFirstName());
-	}
 }

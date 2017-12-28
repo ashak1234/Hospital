@@ -93,7 +93,7 @@ article {
   
 <nav>
   <ul>
-    <li><a href="home1.jsp">Home</a><br>    
+    <li><a href="home.jsp">Home</a><br>    
     <li><a href="aboutUs.jsp">Contact Us</a><br>
     <li><a href="newLetter.jsp">NewsLetter</a><br>
     <li><a href="contactUs.jsp">Contact Us</a><br>

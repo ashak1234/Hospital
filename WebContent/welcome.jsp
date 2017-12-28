@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
-
+<title>Welcome</title>
+</head>
 <style>
 	body{ 		 
 	    font-family:Verdana, Arial; 
@@ -14,8 +14,8 @@
         background-color: #ead9c8;
 	}
 	
-	h2 {
-    text-align: right;
+	h3 {
+    text-align: centre;
 	}	
 	
 	#header{	
@@ -28,43 +28,39 @@
   li{
 		margin-left:15px;	
 		border-radius: 5px;   
-	    border: 2px solid  #ac7339;
-		background-color:  #ac7339; ;
+	    border: 2px solid #ac7339;
+		background-color:#ac7339;		
 		height: 50px;
 		width: 200px;
-		margin: 10px;
+		margin: 20px;
 		text-align: center;
- 	}
- 
- ul{	
-		list-style-type: none;
-		margin: 0;
-	    padding: 0;
-	}
-  a {
+		list-style-type: none;		   
+ 	}  
+ 	
+ 	a {
 		text-decoration: none;
-	    text-align:center;
-	    padding-top: 2cm;
+	    text-align:center;	    
 		color: black;
 		font-family: Verdana, sans-serif;
 	}
 	
 </style>
-</head>
+
 <body>
 <div id = "header"> 	
-		<h2> Welcome ${firstname} </h2>	
-	
+		<h3> Welcome ${firstname} </h3>		
 </div>
-	<section>
-		<ul>
-		  <li><a href="#home">Home</a></li>
-		  <li><a href="#pending">Pending Requests</a></li>
-		  <li><a href="#search">Patient Search</a></li>
-		  <li><a href="#reports">Reports</a></li>
-		  <li><a href="#tools">Tools</a></li>
-		  <li><a href="home.jsp" > SignOut</a></li>
-		</ul>
-	</section>
+<ul>		  
+		  <li><p><a href="pending">Pending Requests</a></p></li>		  
+		  <li><p><a href="search">Patient Search</a></p></li>		  
+		  <li><p><a href="reports">Reports</a></p></li>
+		  <li><p><a href="show">View Appointments</a></p></li>
+		  <li><p><a href="modify">Modify Appointments</a></p></li>
+		  <li><p><a href="home.jsp">SignOut</a></p></li>		 
+</ul>		
+		
+
+		
+	
 </body>
 </html>

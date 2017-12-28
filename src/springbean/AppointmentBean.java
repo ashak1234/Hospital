@@ -3,25 +3,25 @@ package springbean;
 import java.util.Date;
 
 public class AppointmentBean {
-	public class Appointment {
+	
 		private int aid;
 		private String firstName;
 		private String lastName;	
 		private String dept;
-		private String doctor;
-		private Date day;
+		private String doctor;	
+		private String day;
 		private String time;
 		private String reason;
 		private String email;
 		private String mobile;
 		private String address;
 		private String contactType;
-		private boolean isPending;
+		private String pending;
 		
-		public String getFirstName() {
+		public String getfirstName() {
 			return firstName;
 		}
-		public void setFirstName(String firstName) {
+		public void setfirstName(String firstName) {
 			this.firstName = firstName;
 		}
 		public String getLastName() {
@@ -79,17 +79,17 @@ public class AppointmentBean {
 		public void setTime(String time) {
 			this.time = time;
 		}
-		public Date getDay() {
+		public String getDay() {
 			return day;
 		}
-		public void setDay(Date day) {
+		public void setDay(String day) {
 			this.day = day;
 		}
-		public boolean getPending() {
-			return isPending;
+		public String getPending() {
+			return pending;
 		}
-		public void setPending(boolean isPending) {
-			this.isPending = isPending;
+		public void setPending(String pending) {
+			this.pending = pending;
 		}	
 		
 		public int getAid() {
@@ -103,9 +103,8 @@ public class AppointmentBean {
 			return "Appointment [aid=" + aid + ", firstName=" + firstName + ", lastName=" + lastName + ", dept=" + dept
 					+ ", doctor=" + doctor + ", date=" + day + ", time=" + time + ", reason=" + reason + ", email=" + email
 					+ ", mobile=" + mobile + ", address=" + address + ", contactType=" + contactType + ", pendingType="
-					+ isPending + "]";
+					+ pending + "]";
 		}	
 		
-	}
-
 }
+	

@@ -13,20 +13,31 @@ body{
 		}
 label {
 	    display: inline-block;
-		width: 220px;
+		width: 400px;
 		text-align: right;
 	}
+.login{
+	border: 5px black;
+	width: 100px;
+	background-color:#ac7339; 
+	height: 300px;	
+	padding-right:10cm;
+}
 
 </style>
 <body>
+<center>
+<div class="login">
 <center>
 <h2>Login</h2>
 <form:form id="loginForm" modelAttribute="user" action="doctorLogin" mehtod="post">
 <label>UserName  <input type="text" name="userName" required="required"></label><br>
 <label>Password  <input type="password" name="password" required="required"></label><br><br>
-<input type="submit" value="Submit"/><br><br><br>
+<label><input type="submit" value="Submit"/></label><br><br><br>
 <label> New Doctor? <a href="register.jsp">Register Here</a></label>
 </form:form>
+</center>
+</div>
 </center>
 </body>
 </html>
